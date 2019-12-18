@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/Login.css" />
+</head>
+<body>
+    <span><?php echo $Message; ?></span>
+    <form action="index.php" method="post">
+        <div class="container">
+            <input type="text" placeholder="Enter Username" name="uiUsername">
+            <input type="password" placeholder="Enter Password" name="uiPassword">
+
+            <button type="submit" name="uiLogin">Login</button>
+            <a href="forget.php">forget password</a>
+        </div>
+    </form>
+
+</body>
+</html>
