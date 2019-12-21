@@ -1,6 +1,5 @@
 <?php
 
-
 class grouping
 {
     public $name_group ;
