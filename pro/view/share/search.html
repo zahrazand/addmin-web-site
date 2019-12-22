@@ -6,5 +6,12 @@
 <script src="js/angular/angular-resource.js"></script>
 
 <div class="search" >
-    <input type="text" placeholder="Search..." ng-model="searchData" class="form-control" />
+    <div ng-app="searchApp">
+        <span class="welcom"><?php echo $WelcomeMessage; ?></span>
+        <span class="page"><?php echo $NamePage; ?></span>
+        <input type="text" placeholder="Search..." ng-model="searchData" class="form-control" />
+        <div ng-controller="searchController">
+            
+        </div>
+    </div>
 </div>

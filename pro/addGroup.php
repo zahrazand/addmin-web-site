@@ -11,7 +11,17 @@ if(!isset($_SESSION['USER'])) {
 else
 {
     $u = unserialize($_SESSION['USER']);
-    $username=$u-> getUsername()
+    $grouping=new grouping();
+    $grouping->setIdGroup(getUsername());
+    $grouping->setNameGroup($_POST['_add']);
+    if($grouping->checkGroupName()){
+        $_SESSION['USER'] = serialize($u);
+        $_SESSION['grouping'] = serialize($grouping);
+        $message="add group name sucssecfuly";
+    }
+    else{
+        $message="group name exict ";
+    }
 }
 require "config.php";
 include $ShareFolderPath."mainHeader.html";
