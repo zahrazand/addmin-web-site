@@ -1,4 +1,5 @@
 <?php
+require_once "database.php";
 abstract class person
 {
     public $name;
@@ -55,15 +56,14 @@ class user extends person
 
     function checkUserPass()
     {
-        $paramTypes = "ss";
-        $Parameters = array($this->username, $this->password);
+        $paramTypes = "s";
+        $Parameters = array($this->username);
         $result = database::ExecuteQuery('CheckUserPass', $paramTypes, $Parameters);
-
         if(mysqli_num_rows($result) > 0)
         {
             $row = $result->fetch_array();
-            $this->setName($row["Name"]);
-            $this->setFamily($row["Family"]);
+            $this->setName($row["name"]);
+            $this->setFamily($row["family"]);
             return true;
         }
         return false;
