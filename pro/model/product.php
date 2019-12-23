@@ -2,32 +2,46 @@
 
 class grouping
 {
-    public $name_group ;
-    public $id_group ;
+    protected $name_group ;
+    protected $id_group ;
 
     function setNameGroup($name)
     {
-        $this->$name_group = $name;
+        $this->name_group = $name;
     }
 
     function getNameGroup()
     {
-        return $this->$name_group;
+        return $this->name_group;
     }
 
     function setIdGroup($id)
     {
-        $this->$id_group = $id;
+        $this->id_group = $id;
     }
 
     function getIdGroup()
     {
-        return $this->$id_group;
+        return $this->id_group;
     }
 
-    function Exist_group()
+    Public function IsGroupNameExict()
     {
+        $paramTypes = "ss";
+        $Parameters = array($this->id_group , $this->name_group);
+        $result = database::ExecuteQuery('CheckGroupName', $paramTypes, $Parameters);
+        if(mysqli_num_rows($result)>0)
+        {
+            return true;
+        }
+        return false;
         
+    }
+    function addGroup(){
+        $paramTypes = "ss";
+        $Parameters = array($this->id_group , $this->name_group);
+        $result = database::ExecuteQuery('AddGroup', $paramTypes, $Parameters);
+        return TRUE;
     }
 
 }

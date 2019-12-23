@@ -38,6 +38,6 @@ if(isset($_POST['_add'])){
     }
 }
    
-include $viewpath."addGroup.html";
+include $viewpath."addProduct.html";
 include $ShareFolderPath."mainFooter.html";
 ?>

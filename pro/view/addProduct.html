@@ -1,0 +1,21 @@
+<div class="" >
+    <span><?php echo $Message; ?></span>
+    <label>enter product group</label>
+    <input  id= "_groupName" type="text" onkeydown="checkgroupname();" name="_groupname" ">
+    <p id="_Message"></p> 
+    <form class="padd" action="addProduct.php" method="post">
+        <label>product name</label>
+        <input  id= "_product" name= "_product" type="text"  />
+        <br>
+        <label>price</label>
+        <input  id= "_price" name="_price" type="text"  />
+        <br>
+        <label>number</label>
+        <input  id= "_number" name= "_number" type="text"  />
+        <br>
+        <label>description</label>
+        <input  id= "_description" name= "_description" type="text"  />
+        
+        <button class="login100-form-btn" name="_add">conferm</button>
+    </form>
+</div>

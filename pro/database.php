@@ -21,7 +21,6 @@ abstract class database
     {
         $inputArray[] = &$ParamTypes;
         $j = count($Parameters);
-        echo $Parameters[0];
         $ParameterQuestionMarks = "";
         for($i=0;$i<$j;$i++){
             $inputArray[] = &$Parameters[$i];
