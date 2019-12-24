@@ -10,7 +10,8 @@ $_Username='';
 if (isset($_POST['_Login'])) 
 {
     $adm = new user();
-    $_Username=$adm->setUsername($_POST['_Username']);
+    $_Username=$_POST['_Username'];
+    $adm->setUsername($_POST['_Username']);
     $adm->setPassword($_POST['_Password']);
     if($adm->checkUserPass())
     {

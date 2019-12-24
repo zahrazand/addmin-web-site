@@ -1,21 +1,31 @@
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/checkgroupname.js" ></script>
+
 <div class="" >
-    <span><?php echo $Message; ?></span>
+    
+    <br>
     <label>enter product group</label>
-    <input  id= "_groupName" type="text" onkeydown="checkgroupname();" name="_groupname" ">
-    <p id="_Message"></p> 
-    <form class="padd" action="addProduct.php" method="post">
+    <input  id= "_groupName" type="text" onkeyup="checkgroupname();" name="_groupname" value="<?php echo $_groupname; ?>">
+    <br>
+    <h4 id="_mess"></h4> 
+    <form class="padd" action="addProduct.php" method="post" enctype="multipart/form-data">
+        <span><?php echo $Message; ?></span>
+        <br>
         <label>product name</label>
-        <input  id= "_product" name= "_product" type="text"  />
+        <input  id= "_product" name= "_product" type="text" value="<?php echo $_product; ?>" />
         <br>
         <label>price</label>
-        <input  id= "_price" name="_price" type="text"  />
+        <input  id= "_price" name="_price" type="number" value="<?php echo $_price; ?>" />
         <br>
         <label>number</label>
-        <input  id= "_number" name= "_number" type="text"  />
+        <input  id= "_number" name= "_number" type="number" value="<?php echo $_num; ?>" />
         <br>
         <label>description</label>
-        <input  id= "_description" name= "_description" type="text"  />
-        
+        <input  id= "_description" name= "_description" type="text"  value="<?php echo $_description; ?>"/>
+        <br>
+        <label>image</label>
+        <input  id= "_img" name= "_img" type="file"  />
+        <br>
         <button class="login100-form-btn" name="_add">conferm</button>
     </form>
 </div>

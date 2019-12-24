@@ -39,11 +39,12 @@ abstract class database
         $ParameterQuestionMarks = $tempParameters["ParameterQuestionMarks"];
 
         $sql = "CALL ".$StoredProcedureName."(".substr($ParameterQuestionMarks, 0, -1).")";
-
+        
         if($stmt = mysqli_prepare($connection, $sql))
         {
             if($ParamTypes != "")
-                call_user_func_array(array($stmt, 'bind_param'), $inputArray);
+                 call_user_func_array(array($stmt, 'bind_param'), $inputArray);
+                
             try {
                 $stmt->execute();
                 $result = $stmt->get_result();

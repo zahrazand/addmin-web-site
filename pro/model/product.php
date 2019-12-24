@@ -48,55 +48,78 @@ class grouping
 
 class product extends grouping
 {
-    public $name_pro ;
-    public $id_pro ;
-    public $number_pro ;
-    public $price_pro ;
+    private $name_pro ;
+    private $descrip_pro;
+    private $number_pro ;
+    private $price_pro ;
+    private $img_pro;
 
     function setNameProduct($name)
     {
-        $this->$name_pro = $name;
+        $this->name_pro = $name;
     }
 
     function getNameProduct()
     {
-        return $this->$name_pro;
+        return $this->name_pro;
     }
 
-    function setIdProduct($id)
+    function setDecsripProduct($desc)
     {
-        $this->$id_pro = $id;
+        $this->descrip_pro = $desc;
     }
 
-    function getIdProduct()
+    function getDescripProduct()
     {
-        return $this->$id_pro;
+        return $this->descrip_pro;
     }
 
     
     function setNumberProduct($number)
     {
-        $this->$number_pro = $number;
+        $this->number_pro = $number;
     }
 
     function getNumberProduct()
     {
-        return $this->$number_pro;
+        return $this->number_pro;
     }
-
     
     function setPriceProduct($price)
     {
-        $this->$price_pro = $price;
+        $this->price_pro = $price;
     }
 
     function getPriceProduct()
     {
-        return $this->$price_pro;
+        return $this->price_pro;
+    }
+    function setImgProduct($img)
+    {
+        $this->img_pro = $img;
+    }
+
+    function getImgProduct()
+    {
+        return $this->img_pro;
     }
 
     function Exist_pro()
     {
+        $paramTypes = "sss";
+        $Parameters = array($this->id_group , $this->name_group , $this->name_pro);
+        $result = database::ExecuteQuery('CheckProduct', $paramTypes, $Parameters);
+        if(mysqli_num_rows($result)>0)
+        {
+            return true;
+        }
+       return false;
+    }
+    function AddPro(){
+        $paramTypes = "siissss";
+        $Parameters = array($this->name_pro, $this->price_pro, $this->number_pro , $this->descrip_pro,$this->name_group, $this->id_group, $this->img_pro);
+        $result = database::ExecuteQuery('AddProduct', $paramTypes, $Parameters);
+        return TRUE;
 
     }
 }

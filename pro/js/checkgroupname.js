@@ -1,15 +1,15 @@
-function checkusername()
-{
-    var groupname = document.getElementById("_groupName");
-    var m = document.getElementById("_Message");
-    xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function ()
-    {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-            m.innerHTML = xmlhttp.responseText;
-        else if (xmlhttp.readyState == 1)
-            m.innerHTML = "please wait...";
-    }
-    xmlhttp.open("GET", "checkgroupname.php?un="+groupname.value, false);
-    xmlhttp.send();
+function checkgroupname() {
+    groupname = document.getElementById("_groupName").value;
+    document.getElementById("_mess").innerHTML = 'Please wait...';
+
+    $.ajax({
+        url: 'checkGroupName.php',
+        type: 'POST',
+        async: !1,
+        //contentType: 'charset=utf-8',
+        data: { un: groupname},
+        success: function (data) {
+            document.getElementById("_mess").innerHTML = data;
+        }
+    });
 }
