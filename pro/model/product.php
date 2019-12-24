@@ -43,7 +43,25 @@ class grouping
         $result = database::ExecuteQuery('AddGroup', $paramTypes, $Parameters);
         return TRUE;
     }
-
+    public function jsonSerialize(){
+        return get_object_vars($this);
+    }
+    public function ShowGroups(){
+        $paramTypes = "s";
+        $Parameters = array($this->id_group );
+        $result = database::ExecuteQuery('ShowGroups', $paramTypes, $Parameters);
+        $groupsList=array();
+        $i = 0;
+        while ($row = $result->fetch_array())
+        {
+            $tempGroup=new grouping();
+            $tempGroup->setIdGroup($row["gId"]);
+            $tempGroup->setNameGroup($row["groupName"]);
+            $groupsList[$i++]=$tempGroup->jsonSerialize();
+        }
+        return $groupsList;
+    }
+   
 }
 
 class product extends grouping

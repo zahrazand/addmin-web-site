@@ -1,7 +1,20 @@
-<form action="addGroup.php" method="post">
-    <span><?php echo $Message; ?></span>
-    <br>
-    <label>enter new group name</label>
-    <input  id= "_groupname" name="_groupname" type="text" value="<?php echo $_groupname; ?>" />
-    <button name="_add">add</button>
-</form>
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form" action="addGroup.php" method="post">
+                <span><?php echo $Message; ?></span>
+                 <br>
+                <span class="login100-form-title"> New Group </span>
+                <div class="wrap-input100">
+                    <input class="input100" id="groupname" type="text " name="groupname" placeholder="Enter New Group Name ">
+
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" name="_add" id="_add">Add</button>
+                </div>
+                <br>
+            </form>
+        </div>
+    </div>
